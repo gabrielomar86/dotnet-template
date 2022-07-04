@@ -15,6 +15,8 @@ namespace GuayaswestSample.api
 {
     public class Startup
     {
+        private string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup()
         {
             var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
@@ -36,6 +38,12 @@ namespace GuayaswestSample.api
             services.AddControllers();
 
             services.AddHealthChecks();
+
+            services.AddCors(options => {
+                options.AddPolicy(name: MyAllowSpecificOrigins, policy => {
+                    policy.WithAnyOrigin();
+                });
+            });
 
             // Adicionar todas las referencias de los servicios
             services.AddCore();
