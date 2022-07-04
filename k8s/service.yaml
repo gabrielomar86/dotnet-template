@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: GuayaswestSamplek8sName
+  namespace: default
+  labels:
+    app: GuayaswestSamplek8sName
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 2005
+    targetPort: 80
+  selector:
+    app: GuayaswestSamplek8sName

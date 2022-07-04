@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Guayaswest",
+  "classifications": [
+    "webapi"
+  ],
+  "name": "Guayaswest Webapi Template",
+  "identity": "Guayaswest.Webapi.Template.CSharp",
+  "groupIdentity": "Guayaswest.Webapi.Template",
+  "shortName": "Guayaswest-webapi",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Guayaswest.Webapi",
+  "preferNameDirectory": true,
+  "symbols": {
+    "proyectName": {
+      "description": "Parametro requerido para asignar un nombre al proyecto nuevo.",
+      "isRequired": true,
+      "type": "parameter",
+      "defaultValue": "Guayaswest",
+      "replaces": "GuayaswestSample",
+      "fileRename": "GuayaswestSample"
+    },
+    "replaceSolutionName": {
+      "type": "derived",
+      "valueSource": "proyectName",
+      "valueTransform": "ValueBeforeLastDot",  
+      "fileRename": "guayaswest-webapi"
+    },
+    "replaceVariableName": {
+      "type": "derived",
+      "valueSource": "proyectName",
+      "valueTransform": "ValueBeforeLastDot",  
+      "replaces": "GuayaswestSample"
+    },
+    "replaceDockerContainerName": {
+      "type": "derived",
+      "valueSource": "proyectName",
+      "valueTransform": "lowerCase",  
+      "replaces": "GuayaswestSampleContainer"
+    },
+    "replaceDockerImageName": {
+      "type": "derived",
+      "valueSource": "proyectName",
+      "valueTransform": "lowerCase",  
+      "replaces": "GuayaswestSampleImagen"
+    },
+    "replaceDockerComposeSectionName": {
+      "type": "derived",
+      "valueSource": "proyectName",
+      "valueTransform": "lowerCase",  
+      "replaces": "guayaswestsample"
+    },
+    "replaceGuayaswestSamplePush": {
+      "type": "derived",
+      "valueSource": "proyectName",
+      "valueTransform": "lowerCase",  
+      "replaces": "GuayaswestSamplePush"
+    },
+    "replacenGuayaswestSamplek8sName": {
+      "type": "derived",
+      "valueSource": "proyectName",
+      "valueTransform": "lowerCase",  
+      "replaces": "GuayaswestSamplek8sName"
+    }
+  },
+  "forms": {
+    "ValueBeforeLastDot": {
+      "identifier": "replace",
+      "pattern": "^.*\\.(?=[^\\.]+$)",
+      "replacement": ""
+    },
+    "lowerCase": {
+      "identifier": "lowerCase"
+    }
+  },
+  "primaryOutputs": [
+    {
+      "path": ""        
+    }    
+  ],
+  "postActions": [
+    {
+      "description": "Restore solution.",
+      "manualInstructions": [{
+        "text": "Run 'dotnet restore'"
+      }],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": false
+    },
+    {
+      "description": "Inicializar Repositorio git",
+      "manualInstructions": [],
+      "args": {
+        "executable": "git",
+        "args": "init"
+      },
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "continueOnError": false,
+      "redirectStandardOutput": false
+    } 
+  ]    
+}

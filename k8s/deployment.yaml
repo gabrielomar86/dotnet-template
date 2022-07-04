@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: GuayaswestSamplek8sName
+  namespace: default
+  labels:
+    app: GuayaswestSamplek8sName
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: GuayaswestSamplek8sName
+  template:
+    metadata:
+      labels:
+        app: GuayaswestSamplek8sName
+    spec:
+      containers:
+      - name: GuayaswestSamplek8sName
+        image: [IMAGEN-BACKEND-DOCKER-REGISTRY]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+        resources:
+          requests:
+            cpu: 1
+            memory: 128Mi
+          limits:
+            cpu: 2
+            memory: 512Mi
