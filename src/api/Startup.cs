@@ -41,7 +41,7 @@ namespace GuayaswestSample.api
 
             services.AddCors(options => {
                 options.AddPolicy(name: MyAllowSpecificOrigins, policy => {
-                    policy.WithAnyOrigin();
+                    policy.WithOrigins("*");
                 });
             });
 
@@ -68,7 +68,8 @@ namespace GuayaswestSample.api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "api v1"));
             }
-
+            app.UseCors(MyAllowSpecificOrigins);
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();
