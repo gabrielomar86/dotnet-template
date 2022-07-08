@@ -7,7 +7,7 @@
   * Clonar el proyecto que contiene la plantilla con:
 
   ```clonarProyecto
-    git clone http://machangara.ddns.net:3397/gabriel.tarapues/guayaswest-dotnet-templates.git
+    git clone git@github.com:gabrielomar86/dotnet-template.git
   ```
 
   * Nos ubicamos en la carpeta raiz del proyecto clonado y ejecutamos el siguiente comando:

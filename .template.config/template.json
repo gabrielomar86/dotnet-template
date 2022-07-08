@@ -77,9 +77,6 @@
     }
   },
   "primaryOutputs": [
-    {
-      "path": ""        
-    }    
   ],
   "postActions": [
     {
